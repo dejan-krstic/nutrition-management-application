@@ -1,0 +1,36 @@
+.navigation-menu-btn {
+  background: transparent;
+  margin-left: 0.8rem;
+  border: none;
+  box-shadow: 0px white;
+}
+
+.navigation-title {
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  & a {
+    color: darkslategray;
+  }
+}
+
+.navigation-header-links {
+  display: none;
+}
+
+.navigation-drawer-links {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .navigation-menu-btn {
+    display: none;
+  }
+
+  .navigation-header-links {
+    display: block;
+  }
+  .navigation-title {
+    margin-left: 2rem;
+  }
+}
