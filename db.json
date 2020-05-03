@@ -2,82 +2,12 @@
   "daysToProvide": 7,
   "recipes": [
     {
-      "id": 1,
-      "category": "Dinner",
-      "title": "Greek Lemon Chicken and Potatoes",
-      "description": "I don't have the energy or courage to cater for a living but, if I did, this Greek lemon chicken and potatoes would be one of my go-to entrees, and not just for big, fat weddings. It's a proven crowd-pleaser, simple to make, and easy on the wallet.",
-      "images": [
-        "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F3899292.jpg&w=596&h=399&c=sc&poi=face&q=85",
-        "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F2306786.jpg&w=596&h=792&c=sc&poi=face&q=85",
-        "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5567505.jpg&w=596&h=596&c=sc&poi=face&q=85"
-      ],
-      "numberOfServings": 2,
-      "readyInMinutes": 45,
-      "ingredients": [
-        {
-          "name": "chicken",
-          "amount": 500,
-          "unit": "g"
-        },
-        {
-          "name": "lemon juice",
-          "amount": 0.05,
-          "unit": "l"
-        },
-        {
-          "name": "garlic",
-          "amount": 6,
-          "unit": "piece"
-        },
-        {
-          "name": "potatoes",
-          "amount": 300,
-          "unit": "g"
-        }
-      ],
-      "instructions": "ed oregano."
-    },
-    {
       "id": 2,
       "category": "Lunch",
       "title": "Rosemary Salmon and Veggies",
       "description": "I don't have the energy or courage to cater for a living but, if I did, this Greek lemon chicken and potatoes would be one of my go-to entrees, and not just for big, fat weddings. It's a proven crowd-pleaser, simple to make, and easy on the wallet.",
       "images": [
         "https://www.tasteofhome.com/wp-content/uploads/2020/04/Rosemary-Salmon-and-Veggies_EXPS_TOHAS20_245937_F04_14_2b_home-696x696.jpg"
-      ],
-      "numberOfServings": 2,
-      "readyInMinutes": 45,
-      "ingredients": [
-        {
-          "name": "chicken",
-          "amount": 500,
-          "unit": "g"
-        },
-        {
-          "name": "lemon juice",
-          "amount": 0.05,
-          "unit": "l"
-        },
-        {
-          "name": "garlic",
-          "amount": 6,
-          "unit": "piece"
-        },
-        {
-          "name": "potatoes",
-          "amount": 300,
-          "unit": "g"
-        }
-      ],
-      "instructions": "ed oregano."
-    },
-    {
-      "id": 3,
-      "category": "Breakfast",
-      "title": "Italian Turkey Skillet",
-      "description": "I don't have the energy or courage to cater for a living but, if I did, this Greek lemon chicken and potatoes would be one of my go-to entrees, and not just for big, fat weddings. It's a proven crowd-pleaser, simple to make, and easy on the wallet.",
-      "images": [
-        "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps27325_SD132779D06_05_1b_WEB-696x696.jpg"
       ],
       "numberOfServings": 2,
       "readyInMinutes": 45,
@@ -178,7 +108,7 @@
     {
       "id": "20200504-Breakfast",
       "date": "20200504",
-      "recipe": 3,
+      "recipe": 5,
       "type": "Breakfast"
     },
     {
@@ -190,7 +120,7 @@
     {
       "id": "20200507-Breakfast",
       "date": "20200507",
-      "recipe": 3,
+      "recipe": 5,
       "type": "Breakfast"
     },
     {
@@ -202,7 +132,7 @@
     {
       "id": "20200504-Dinner",
       "date": "20200504",
-      "recipe": 1,
+      "recipe": 4,
       "type": "Dinner"
     },
     {
@@ -216,198 +146,6 @@
       "date": "20200506",
       "recipe": 4,
       "type": "Dinner"
-    },
-    {
-      "id": "20200508-Dinner",
-      "date": "20200508",
-      "recipe": 1,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200509-Dinner",
-      "date": "20200509",
-      "recipe": 4,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200505-Lunch",
-      "date": "20200505",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200506-Lunch",
-      "date": "20200506",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200508-Lunch",
-      "date": "20200508",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200509-Lunch",
-      "date": "20200509",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200514-Breakfast",
-      "date": "20200514",
-      "recipe": 3,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200516-Breakfast",
-      "date": "20200516",
-      "recipe": 5,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200517-Breakfast",
-      "date": "20200517",
-      "recipe": 3,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200519-Breakfast",
-      "date": "20200519",
-      "recipe": 5,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200514-Dinner",
-      "date": "20200514",
-      "recipe": 1,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200515-Dinner",
-      "date": "20200515",
-      "recipe": 4,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200516-Dinner",
-      "date": "20200516",
-      "recipe": 4,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200518-Dinner",
-      "date": "20200518",
-      "recipe": 1,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200519-Dinner",
-      "date": "20200519",
-      "recipe": 4,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200515-Lunch",
-      "date": "20200515",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200516-Lunch",
-      "date": "20200516",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200518-Lunch",
-      "date": "20200518",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200519-Lunch",
-      "date": "20200519",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200524-Breakfast",
-      "date": "20200524",
-      "recipe": 3,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200526-Breakfast",
-      "date": "20200526",
-      "recipe": 5,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200527-Breakfast",
-      "date": "20200527",
-      "recipe": 3,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200529-Breakfast",
-      "date": "20200529",
-      "recipe": 5,
-      "type": "Breakfast"
-    },
-    {
-      "id": "20200524-Dinner",
-      "date": "20200524",
-      "recipe": 1,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200525-Dinner",
-      "date": "20200525",
-      "recipe": 4,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200526-Dinner",
-      "date": "20200526",
-      "recipe": 4,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200528-Dinner",
-      "date": "20200528",
-      "recipe": 1,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200529-Dinner",
-      "date": "20200529",
-      "recipe": 4,
-      "type": "Dinner"
-    },
-    {
-      "id": "20200525-Lunch",
-      "date": "20200525",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200526-Lunch",
-      "date": "20200526",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200528-Lunch",
-      "date": "20200528",
-      "recipe": 4,
-      "type": "Lunch"
-    },
-    {
-      "id": "20200529-Lunch",
-      "date": "20200529",
-      "recipe": 4,
-      "type": "Lunch"
     }
   ],
   "groceries": [
