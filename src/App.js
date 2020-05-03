@@ -1,31 +1,41 @@
 // This is a class-based component because the current version of hot reloading won't hot reload a stateless component at the top-level.
-import PropTypes from "prop-types";
 import { hot } from "react-hot-loader";
 import Navigation from "./components/Navigation";
-import WhatToEat from "./containers/pages/WhatToEat";
-import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
+import MealPlan from "./containers/pages/MealPlan";
+import MyRecipes from "./containers/pages/MyRecipes";
+import Groceries from "./containers/pages/Groceries";
+import ShoppingList from "./containers/pages/ShoppingList";
+import { Switch, Route, Redirect } from "react-router-dom";
 import "antd/dist/antd.css";
 
-const App = () => {
-  return (
-    <>
-      <Navigation />
-      <main>
-        <BrowserRouter>
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <Navigation />
+        <main>
           <Switch>
             <Route path="/" exact>
-              <WhatToEat />
+              <MyRecipes />
+            </Route>
+            <Route path="/meal-plan" exact>
+              <MealPlan />
+            </Route>
+            <Route path="/groceries" exact>
+              <Groceries />
+            </Route>
+            <Route path="/shopping-list" exact>
+              <ShoppingList />
+            </Route>
+            <Route path="/meal-plan" exact>
+              <MealPlan />
             </Route>
             <Redirect to="/" />
           </Switch>
-        </BrowserRouter>
-      </main>
-    </>
-  );
-};
-
-App.propTypes = {
-  children: PropTypes.element,
-};
+        </main>
+      </>
+    );
+  }
+}
 
 export default hot(module)(App);

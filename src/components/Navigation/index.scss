@@ -1,14 +1,13 @@
-.navigation-menu-btn {
+button.ant-btn.navigation-menu-btn {
   background: transparent;
   margin-left: 0.8rem;
   border: none;
-  box-shadow: 0px white;
+  box-shadow: none;
 }
 
 .navigation-title {
   text-decoration: none;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   & a {
     color: darkslategray;
   }
@@ -23,7 +22,7 @@
 }
 
 @media (min-width: 768px) {
-  .navigation-menu-btn {
+  button.ant-btn.navigation-menu-btn {
     display: none;
   }
 
