@@ -1,10 +1,11 @@
-// Set up your root reducer here... example 
- import { combineReducers } from 'redux'; 
- import { connectRouter } from 'connected-react-router'; 
- 
- const rootReducer = (history) => 
- combineReducers({ 
- router: connectRouter(history), 
- }); 
- 
- export default rootReducer; 
+import { combineReducers } from "redux";
+import { connectRouter } from "connected-react-router";
+import dataReducer from "./dataReducer";
+
+const rootReducer = (history) =>
+  combineReducers({
+    router: connectRouter(history),
+    data: dataReducer,
+  });
+
+export default rootReducer;
