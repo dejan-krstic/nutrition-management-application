@@ -3,11 +3,13 @@ import { Modal } from "antd";
 const ConfirmDeleteModal = (props) => (
   <>
     <Modal
-      title="Do you want to delete this recipe"
+      title={props.title}
       visible={props.visible}
       onOk={props.handleOk}
       onCancel={props.handleCancel}
-    />
+    >
+      {props.children}
+    </Modal>
   </>
 );
 

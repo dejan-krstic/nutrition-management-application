@@ -1,15 +1,18 @@
 import { Row } from "antd";
 import RecipeItem from "./RecipeItem";
-import RecipeModal from "./RecipeModal";
+import { DEFAULT_GUTTER } from "../../constants";
 
 const RecipeList = (props) => {
   return (
-    <Row gutter={[48, 48]}>
-      <RecipeModal />
+    <Row gutter={[DEFAULT_GUTTER, DEFAULT_GUTTER]}>
       {props.items
         .filter((recipe) => recipe && recipe.ingredients)
         .map((recipe) => (
-          <RecipeItem {...recipe} key={recipe.id} />
+          <RecipeItem
+            {...recipe}
+            key={recipe.id}
+            showRecipeModalHandler={props.showRecipeModalHandler}
+          />
         ))}
     </Row>
   );
