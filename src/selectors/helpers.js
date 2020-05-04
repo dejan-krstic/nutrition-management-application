@@ -9,12 +9,14 @@ import {
 
 const getAddNewRecipe = (type, recommendations) => ({
   id: type,
+  category: type,
   title: `Please add ${type.toLocaleLowerCase()}`,
   images: [
     "http://icon-library.com/images/add-image-icon/add-image-icon-14.jpg",
   ],
   description: `We would recommend: ${recommendations[type]}`,
   enjoyMessage: "Enjoy ",
+  isDummy: true,
 });
 
 export const createMealPlan = (recipes, meals) => {
@@ -42,19 +44,18 @@ export const createMealPlan = (recipes, meals) => {
     const dinnerMeal = meals.find(
       (meal) => meal.date == dateId && meal.type === RECIPE_CATEGORY.DINNER,
     );
-    const breakfastRecipe = breakfastMeal
-      ? recipes.find((r) => r.id == breakfastMeal.recipe)
-      : getAddNewRecipe(RECIPE_CATEGORY.BREAKFAST, recommendations);
-    const lunchRecipe = lunchMeal
-      ? recipes.find((r) => r.id == lunchMeal.recipe)
-      : getAddNewRecipe(RECIPE_CATEGORY.LUNCH, recommendations);
-    const dinnerRecipe = dinnerMeal
-      ? recipes.find((r) => r.id == dinnerMeal.recipe)
-      : getAddNewRecipe(RECIPE_CATEGORY.DINNER, recommendations);
+    const breakfastRecipe =
+      recipes.find((r) => r.id == (breakfastMeal || {}).recipe) ||
+      getAddNewRecipe(RECIPE_CATEGORY.BREAKFAST, recommendations);
+    const lunchRecipe =
+      recipes.find((r) => r.id == (lunchMeal || {}).recipe) ||
+      getAddNewRecipe(RECIPE_CATEGORY.LUNCH, recommendations);
+    const dinnerRecipe =
+      recipes.find((r) => r.id == (dinnerMeal || {}).recipe) ||
+      getAddNewRecipe(RECIPE_CATEGORY.DINNER, recommendations);
     const day = {
       id: dateId,
       panelDate: dateMoment.format(PANEL_DATE_FORMAT),
-      hasMeals: [!!breakfastMeal, !!lunchMeal, !!dinnerMeal],
       recipes: [breakfastRecipe, lunchRecipe, dinnerRecipe],
     };
     mealPlan.push(day);
@@ -74,7 +75,7 @@ export const createShoppingList = (
   const ingredientArray = meals
     .filter((meal) => +meal.date > +beginningDate && +meal.date <= +endDate)
     .map((meal) => recipes.find(({ id }) => id == meal.recipe))
-    .filter((recipe) => recipe.ingredients)
+    .filter((recipe) => recipe && recipe.ingredients)
     .reduce((acc, e) => acc.concat(e.ingredients), []);
 
   const necessaryGroceries = [];

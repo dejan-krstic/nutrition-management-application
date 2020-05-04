@@ -8,22 +8,30 @@ const NavLinks = () => {
     <ul className="nav-links">
       <li>
         <NavLink to="/" exact>
-          <Button size="large">MY RECIPES</Button>
+          <Button size="large" className="navigation-link-btn">
+            MY RECIPES
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink to="/meal-plan" exact>
-          <Button size="large">MEAL PLAN</Button>
+          <Button size="large" className="navigation-link-btn">
+            MEAL PLAN
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink to="/groceries" exact>
-          <Button size="large">GROCERIES</Button>
+          <Button size="large" className="navigation-link-btn">
+            GROCERIES
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink to="/shopping-list" exact>
-          <Button size="large">SHOPPING LIST</Button>
+          <Button size="large" className="navigation-link-btn">
+            SHOPPING LIST
+          </Button>
         </NavLink>
       </li>
     </ul>
