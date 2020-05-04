@@ -4,13 +4,13 @@ import { DEFAULT_GUTTER } from "../../constants";
 
 const RecipeList = (props) => {
   return (
-    <Row gutter={[DEFAULT_GUTTER, DEFAULT_GUTTER]}>
+    <Row gutter={[DEFAULT_GUTTER, DEFAULT_GUTTER]} justify="space-around">
       {props.items
         .filter((recipe) => recipe && recipe.ingredients)
         .map((recipe) => (
           <RecipeItem
             {...recipe}
-            key={recipe.id}
+            key={recipe.key || recipe.id}
             showRecipeModalHandler={props.showRecipeModalHandler}
           />
         ))}

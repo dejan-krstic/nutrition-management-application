@@ -15,7 +15,7 @@ export const multiplyRecipes = (repetition, recipes) => {
   const multiRecipes = [];
   for (let i = 0; i < repetition; i++) {
     recipes.forEach((recipe) => {
-      multiRecipes.push({ ...recipe, id: i + "." + recipe.id });
+      multiRecipes.push({ ...recipe, key: i + "." + recipe.id });
     });
   }
   return multiRecipes;
@@ -28,3 +28,5 @@ export const PANEL_DATE_FORMAT = "dddd, MMMM Do";
 export const DAYS_INTO_FUTURE = 30;
 export const GROCERIES = "AVAILABLE GROCERIES";
 export const SHOPPING_LIST = "SHOPPING LIST";
+export const DEFAULT_URL =
+  "https://my-json-server.typicode.com/dejan-krstic/nutrition-management-application/";

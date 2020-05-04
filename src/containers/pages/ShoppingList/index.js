@@ -6,12 +6,10 @@ import { SHOPPING_LIST } from "../../../constants";
 
 const ShoppingList = (props) => {
   return (
-    <Row>
-      <Col xs={1} md={6} />
-      <Col xs={22} md={12}>
+    <Row justify="center">
+      <Col xs={22} md={6}>
         <ItemList {...props} header={SHOPPING_LIST} />
       </Col>
-      <Col xs={1} md={6} />
     </Row>
   );
 };

@@ -4,16 +4,17 @@ import { recipeInfoText } from "./helpers";
 import { DoubleRightOutlined, SmileOutlined } from "@ant-design/icons";
 
 import "./RecipeItem.scss";
+import Title from "antd/lib/typography/Title";
 
 const RecipeItem = (props) => {
   const renderFooter = () =>
-    props.enjoyMessage ? (
-      <div style={{ fontSize: "20px" }}>
+    props.isDummy ? (
+      <div style={{ fontSize: "22px" }}>
         {props.enjoyMessage} <SmileOutlined style={{ fontSize: "20px" }} />
       </div>
     ) : (
       <div
-        style={{ fontSize: "16px" }}
+        style={{ fontSize: "22px" }}
         onClick={() =>
           props.showRecipeModalHandler
             ? props.showRecipeModalHandler(props)
@@ -21,17 +22,29 @@ const RecipeItem = (props) => {
         }
       >
         {recipeInfoText(props.category, props.numberOfServings)}{" "}
-        <DoubleRightOutlined style={{ fontSize: "12px" }} />
+        <DoubleRightOutlined style={{ fontSize: "16px" }} />
       </div>
     );
 
+  const onClickHandler = () => {
+    if (props.chooseMealHandler) {
+      return props.chooseMealHandler(props.id);
+    }
+    if (props.addMealModalHandler) {
+      return props.addMealModalHandler({
+        date: props.date,
+        type: props.category,
+      });
+    }
+    return () => {};
+  };
+
   return (
     <>
-      <Col xs={24} md={12} xl={8}>
+      <Col xs={24} md={12} xl={8} stile={{ margin: "0 auto" }}>
         <div
-          onClick={() =>
-            props.addMealModalHandler ? props.addMealModalHandler(props) : null
-          }
+          onClick={() => onClickHandler()}
+          className={props.showRecipeModalHandler ? "" : "cursor-pointer"}
         >
           <Card
             cover={
@@ -52,7 +65,10 @@ const RecipeItem = (props) => {
             }
             actions={[renderFooter()]}
           >
-            <Meta title={props.title} description={props.description} />
+            <Meta
+              title={<Title level={4}>{props.title}</Title>}
+              description={props.description}
+            />
           </Card>
         </div>
       </Col>

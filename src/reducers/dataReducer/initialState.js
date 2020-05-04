@@ -464,18 +464,9 @@ const GROCERIES = [
   },
 ];
 
-const initialState = {
+export const initialState = {
   recipes: RECIPES,
   meals: MEALS,
   groceries: GROCERIES,
   daysToProvide: 7,
 };
-
-const dataReducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
-
-export default dataReducer;

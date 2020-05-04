@@ -3,15 +3,21 @@ import { connect } from "react-redux";
 import { groceriesSelector } from "../../../selectors";
 import ItemList from "../../../components/ItemList";
 import { GROCERIES } from "../../../constants";
+import { setNewAmount } from "../../../actions";
 
 const Groceries = (props) => {
+  const handleAmountChange = (name, value) => {
+    props.setNewAmount(name, value);
+  };
   return (
-    <Row>
-      <Col xs={1} md={6} />
-      <Col xs={22} md={12}>
-        <ItemList {...props} header={GROCERIES} />
+    <Row justify="center">
+      <Col xs={22} md={7}>
+        <ItemList
+          {...props}
+          header={GROCERIES}
+          handleAmountChange={handleAmountChange}
+        />
       </Col>
-      <Col xs={1} md={6} />
     </Row>
   );
 };
@@ -20,4 +26,4 @@ const mapStateToProps = (state) => ({
   items: groceriesSelector(state),
 });
 
-export default connect(mapStateToProps)(Groceries);
+export default connect(mapStateToProps, { setNewAmount })(Groceries);
