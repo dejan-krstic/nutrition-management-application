@@ -464,9 +464,21 @@ const GROCERIES = [
   },
 ];
 
+const userData = {
+  name: "",
+  accessToken: "",
+  data_access_expiration_time: null,
+  picture: {
+    data: {
+      url: "",
+    },
+  },
+};
+
 export const initialState = {
   recipes: RECIPES,
   meals: MEALS,
   groceries: GROCERIES,
   daysToProvide: 7,
+  userData,
 };

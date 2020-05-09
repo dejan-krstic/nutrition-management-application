@@ -30,3 +30,40 @@ export const GROCERIES = "AVAILABLE GROCERIES";
 export const SHOPPING_LIST = "SHOPPING LIST";
 export const DEFAULT_URL =
   "https://my-json-server.typicode.com/dejan-krstic/nutrition-management-application/";
+export const FOOTER_MSG =
+  "Nutrition Management ©2020 Created by Ancient Technologies";
+
+export const NAVIGATION_LINKS = {
+  myRecipes: {
+    text: "MY RECIPES",
+    path: "/",
+  },
+  mealPlan: {
+    text: "MEAL PLAN",
+    path: "/meal-plan",
+  },
+  groceries: {
+    text: "GROCERIES",
+    path: "/groceries",
+  },
+  shoppingList: {
+    text: "SHOPPING LIST",
+    path: "/shopping-list",
+  },
+  myProfile: {
+    text: "MY PROFILE",
+    path: "/my-profile",
+  },
+};
+
+export const BUTTON_TEXT = {
+  CLOSE: "CLOSE",
+  DELETE: "DELETE",
+  EDIT: "EDIT",
+};
+
+export const RECIPE_SECTION = {
+  DESCRIPTION: "Description",
+  INGREDIENTS: "Ingredients",
+  INSTRUCTIONS: "Instructions",
+};

@@ -1,17 +1,15 @@
 import { Modal, Button, Row } from "antd";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 import RecipeItem from "../Recipes/RecipeItem";
 import { DEFAULT_GUTTER } from "../../constants";
 
 const WhatToEatModal = (props) => {
-  const { width } = useWindowDimensions();
-  const modalWidth = Math.min(1200, 0.9 * width);
   return (
     <>
       <Modal
         visible={props.visible}
         title={props.title}
-        width={modalWidth}
+        width="80rem"
+        style={{ maxWidth: "95vw" }}
         onOk={props.handleClose}
         onCancel={props.handleClose}
         footer={[

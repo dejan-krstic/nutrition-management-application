@@ -3,6 +3,7 @@ import {
   DELETE_RECIPE,
   SET_NEW_AMOUNT,
   SET_RECIPES,
+  SET_USER_DATA,
 } from "./actionTypes";
 
 export const choseMealOnDate = (date, type, recipe) => (dispatch) => {
@@ -30,5 +31,12 @@ export const setRecipes = (recipes) => (dispatch) => {
   dispatch({
     type: SET_RECIPES,
     recipes,
+  });
+};
+
+export const setUserData = (userData) => (dispatch) => {
+  dispatch({
+    type: SET_USER_DATA,
+    userData,
   });
 };
