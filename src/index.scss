@@ -12,6 +12,13 @@ body {
   margin: 0;
 }
 
+section.ant-layout {
+  min-height: 100vh;
+}
+.site-layout {
+  margin-top: 4rem;
+}
+
 .slide-in-left-enter {
   transform: translateX(-100%);
 }
@@ -31,11 +38,4 @@ body {
   transform: translateX(-100%);
   opacity: 0;
   transition: all 200ms;
-}
-
-.center {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

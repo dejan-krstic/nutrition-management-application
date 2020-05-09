@@ -41,14 +41,15 @@ const RecipeItem = (props) => {
 
   return (
     <>
-      <Col xs={24} md={12} xl={8} stile={{ margin: "0 auto" }}>
+      <Col md={12} xl={8}>
         <div
           onClick={() => onClickHandler()}
           className={props.showRecipeModalHandler ? "" : "cursor-pointer"}
         >
           <Card
+            style={{ maxWidth: "32rem" }}
             cover={
-              <Carousel style={{ height: "300px" }}>
+              <Carousel style={{ height: "20rem" }}>
                 {props.images.map((imageSrc, index) => (
                   <div key={index} className="recipe-item-image-container">
                     <img
@@ -56,7 +57,7 @@ const RecipeItem = (props) => {
                       alt={props.title}
                       style={{
                         margin: "0 auto",
-                        height: "300px",
+                        height: "20rem",
                       }}
                     />
                   </div>

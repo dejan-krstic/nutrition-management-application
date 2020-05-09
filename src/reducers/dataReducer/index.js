@@ -3,6 +3,7 @@ import {
   DELETE_RECIPE,
   SET_NEW_AMOUNT,
   SET_RECIPES,
+  SET_USER_DATA,
 } from "../../actions/actionTypes";
 import { initialState } from "./initialState";
 
@@ -44,6 +45,10 @@ const dataReducer = (state = initialState, action) => {
     case SET_RECIPES: {
       const { recipes } = action;
       return { ...state, recipes };
+    }
+    case SET_USER_DATA: {
+      const { userData } = action;
+      return { ...state, userData };
     }
     default:
       return state;

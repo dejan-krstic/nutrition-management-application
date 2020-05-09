@@ -6,34 +6,39 @@ import MyRecipes from "./containers/pages/MyRecipes";
 import Groceries from "./containers/pages/Groceries";
 import ShoppingList from "./containers/pages/ShoppingList";
 import { Switch, Route, Redirect } from "react-router-dom";
+import { Layout } from "antd";
 import "antd/dist/antd.css";
+import { FOOTER_MSG, NAVIGATION_LINKS } from "./constants";
+
+const { Content, Footer } = Layout;
 
 class App extends React.Component {
   render() {
     return (
-      <>
+      <Layout>
         <Navigation />
-        <main>
+        <Content className="site-layout" style={{ marginTop: 64 }}>
           <Switch>
-            <Route path="/" exact>
+            <Route path={NAVIGATION_LINKS.myRecipes.path} exact>
               <MyRecipes />
             </Route>
-            <Route path="/meal-plan" exact>
+            <Route path={NAVIGATION_LINKS.mealPlan.path} exact>
               <MealPlan />
             </Route>
-            <Route path="/groceries" exact>
+            <Route path={NAVIGATION_LINKS.groceries.path} xact>
               <Groceries />
             </Route>
-            <Route path="/shopping-list" exact>
+            <Route path={NAVIGATION_LINKS.shoppingList.path} exact>
               <ShoppingList />
             </Route>
-            <Route path="/meal-plan" exact>
+            <Route path={NAVIGATION_LINKS.myProfile.path} exact>
               <MealPlan />
             </Route>
-            <Redirect to="/" />
+            <Redirect to={NAVIGATION_LINKS.myRecipes.path} />
           </Switch>
-        </main>
-      </>
+        </Content>
+        <Footer style={{ textAlign: "center" }}>{FOOTER_MSG}</Footer>
+      </Layout>
     );
   }
 }

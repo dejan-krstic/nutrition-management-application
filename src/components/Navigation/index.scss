@@ -1,8 +1,34 @@
+$colorHeaderBlue: #001529;
+
+header.ant-layout-header {
+  z-index: 100;
+  width: 100%;
+  padding: 0 1rem;
+}
+
 button.ant-btn.navigation-menu-btn {
   background: transparent;
-  margin-left: 0.8rem;
   border: none;
   box-shadow: none;
+  margin: auto;
+  font-size: 2rem;
+}
+button.ant-btn.facebook-login-btn {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: auto;
+  font-size: 2rem;
+}
+.ant-menu {
+  display: none;
+}
+.header-small-logo {
+  width: 180px;
+}
+.header-large-logo {
+  width: 410px;
+  display: none;
 }
 button.ant-btn.navigation-link-btn {
   margin-left: 0.8rem;
@@ -10,34 +36,69 @@ button.ant-btn.navigation-link-btn {
   border-width: 0px;
 }
 
-.navigation-title {
-  text-decoration: none;
-  margin: 0 auto;
-  & a {
-    color: darkslategray;
+.drawer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  height: 100vh;
+  width: 70%;
+  background: $colorHeaderBlue;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.drawer-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+
+.ant-btn {
+  border-width: 0px !important;
+}
+
+.nav-links {
+  list-style: none;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0.4rem auto;
+}
+
+@media (min-width: 576px) {
+  .header-small-logo {
+    display: none;
+  }
+  .header-large-logo {
+    display: initial;
   }
 }
-
-.navigation-header-links {
-  display: none;
-}
-
-.navigation-drawer-links {
-  height: 100%;
-}
-
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   button.ant-btn.navigation-menu-btn {
     display: none;
   }
-  button.ant-btn.navigation-link-btn {
-    border-width: 1px;
-    margin-top: 0.5rem;
+  .ant-menu {
+    display: initial;
   }
-  .navigation-header-links {
-    display: block;
+
+  header.ant-layout-header {
+    position: fixed;
+    left: 0;
+    top: 0;
   }
-  .navigation-title {
-    margin-left: 2rem;
+  header.header-placeholder {
+    margin-top: 4rem;
   }
 }
