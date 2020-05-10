@@ -4,7 +4,10 @@ import { DEFAULT_GUTTER } from "../../constants";
 
 const RecipeList = (props) => {
   return (
-    <Row gutter={[DEFAULT_GUTTER, DEFAULT_GUTTER]} justify="space-around">
+    <Row
+      gutter={[{ xs: 0, sm: DEFAULT_GUTTER }, DEFAULT_GUTTER]}
+      justify="center"
+    >
       {props.items
         .filter((recipe) => recipe && recipe.ingredients)
         .map((recipe) => (

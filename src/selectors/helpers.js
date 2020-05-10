@@ -12,7 +12,8 @@ const getAddNewRecipe = (type, recommendations) => ({
   category: type,
   title: `Please add ${type.toLocaleLowerCase()}`,
   images: [
-    "http://icon-library.com/images/add-image-icon/add-image-icon-14.jpg",
+    "https://res.cloudinary.com/misicvolizeku/image/upload/c_scale,h_400/v1589086109/unsigned/mcjccuhjl0l28nnbr6fd.jpg",
+    // "https://res.cloudinary.com/misicvolizeku/image/upload/v1589086109/unsigned/mcjccuhjl0l28nnbr6fd.png",
   ],
   description: `We would recommend: ${recommendations[type]}`,
   enjoyMessage: "Enjoy ",

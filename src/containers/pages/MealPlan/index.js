@@ -31,7 +31,7 @@ const MealPlan = (props) => {
         items={props.recipes.filter((r) => r.category === mealData.type)}
       />
       <Row justify="center">
-        <Col xs={22} md={16}>
+        <Col xs={23} sm={22} md={21} xl={20} xxl={17}>
           <WhatToEatDayList
             {...props}
             addMealModalHandler={showWhatToEatModalHandler}

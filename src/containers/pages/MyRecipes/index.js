@@ -1,36 +1,24 @@
 import RecipeList from "../../../components/Recipes/RecipeList";
-import { Col, Row, message, Empty } from "antd";
-import { multiplyRecipes, CONFIRM_DELETE_RECIPE } from "../../../constants";
+import { Col, Row, Empty, Button } from "antd";
+import {
+  multiplyRecipes,
+  CONFIRM_DELETE_RECIPE,
+  NAVIGATION_LINKS,
+} from "../../../constants";
 import { connect } from "react-redux";
 import ConfirmDeleteModal from "../../../components/ConfirmDeleteModal";
 import RecipeModal from "../../../components/Recipes/RecipeModal";
-import { recipesSelector } from "../../../selectors";
+import { recipesSelector, isLoadingSelector } from "../../../selectors";
 import { deleteRecipe, setRecipes } from "../../../actions";
-import { fetchFromServer } from "../../../hooks/fetchFromServer";
-import { useEffect } from "react";
+import navigationHook from "../../../hooks/navigation";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const MyRecipes = (props) => {
-  const { useState, useEffect } = React;
+  const { useState } = React;
   const [showRecipeModal, setOpenRecipeModal] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [recipeModalData, setRecipeModalData] = useState({});
-  const { sendRequest, isLoading } = fetchFromServer();
-
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await sendRequest("recipes");
-
-        props.setRecipes(response.recipes);
-      } catch (error) {
-        message.error(error);
-      }
-    };
-
-    if (!Array.isArray(props.recipes) || !props.recipes.length) {
-      fetchRecipes();
-    }
-  }, [sendRequest]);
+  const { historyPush } = navigationHook();
 
   const showRecipeModalHandler = (recipe) => {
     setRecipeModalData(recipe);
@@ -52,9 +40,12 @@ const MyRecipes = (props) => {
     setShowConfirmModal(false);
     closeRecipeModalHandler();
   };
+  const handleCreateNew = () => {
+    historyPush(NAVIGATION_LINKS.myProfile.path);
+  };
   return (
     <>
-      {!props.recipes.length && !isLoading && (
+      {!props.recipes.length && !props.isLoading && (
         <Empty
           image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
           imageStyle={{
@@ -62,15 +53,21 @@ const MyRecipes = (props) => {
           }}
           description={<span>No recipes exist, maybe create one?</span>}
         >
-          <Button type="primary">Create Now</Button>
+          <Button type="primary" onClick={handleCreateNew}>
+            Create Now
+          </Button>
         </Empty>
       )}
       <Row justify="space-around">
         <Col xs={23} xxl={16}>
-          <RecipeList
-            items={multiplyRecipes(5, props.recipes)}
-            showRecipeModalHandler={showRecipeModalHandler}
-          />
+          {props.isLoading ? (
+            <LoadingOutlined />
+          ) : (
+            <RecipeList
+              items={multiplyRecipes(5, props.recipes)}
+              showRecipeModalHandler={showRecipeModalHandler}
+            />
+          )}
         </Col>
       </Row>
       <ConfirmDeleteModal
@@ -95,6 +92,7 @@ const MyRecipes = (props) => {
 
 const mapStateToProps = (state) => ({
   recipes: recipesSelector(state),
+  isLoading: isLoadingSelector(state),
 });
 
 export default connect(mapStateToProps, { deleteRecipe, setRecipes })(

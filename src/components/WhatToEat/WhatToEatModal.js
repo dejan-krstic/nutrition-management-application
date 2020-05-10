@@ -9,7 +9,7 @@ const WhatToEatModal = (props) => {
         visible={props.visible}
         title={props.title}
         width="80rem"
-        style={{ maxWidth: "95vw" }}
+        style={{ maxWidth: "90vw" }}
         onOk={props.handleClose}
         onCancel={props.handleClose}
         footer={[
@@ -21,7 +21,10 @@ const WhatToEatModal = (props) => {
           </Button>,
         ]}
       >
-        <Row gutter={[DEFAULT_GUTTER, DEFAULT_GUTTER]} justify="space-around">
+        <Row
+          gutter={[{ xs: 0, sm: DEFAULT_GUTTER }, DEFAULT_GUTTER]}
+          justify="space-around"
+        >
           {props.items.map((recipe) => (
             <RecipeItem
               {...recipe}

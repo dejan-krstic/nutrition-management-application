@@ -2,8 +2,8 @@ import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props
 import { FacebookOutlined } from "@ant-design/icons";
 import { Button, Avatar, message } from "antd";
 import { connect } from "react-redux";
-import { userAvatarUrlSelector } from "../../selectors";
-import { setUserData } from "../../actions";
+import { userAvatarUrlSelector } from "../selectors";
+import { setUserData } from "../actions";
 import { useCallback } from "react";
 
 const FacebookLoginButton = ({ avatarUrl, setUserData }) => {
@@ -38,7 +38,11 @@ const FacebookLoginButton = ({ avatarUrl, setUserData }) => {
             ghost
             onClick={renderProps.onClick}
           >
-            {avatarUrl ? <Avatar src={avatarUrl} /> : <FacebookOutlined />}
+            {avatarUrl ? (
+              <Avatar src={avatarUrl} style={{ marginBottom: "0.5rem" }} />
+            ) : (
+              <FacebookOutlined />
+            )}
           </Button>
           )}
         </>
