@@ -5,7 +5,7 @@ import largeLogo from "../../assets/nutrition_management_logo-410px.png";
 import navigation from "../../hooks/navigation";
 import { NAVIGATION_LINKS } from "../../constants";
 import { NavLink, useLocation } from "react-router-dom";
-import FacebookLoginButton from "./FacebookLogin";
+import FacebookLoginButton from "../../containers/FacebookLogin";
 
 const { Header } = Layout;
 
@@ -41,7 +41,6 @@ const AppHeader = (props) => {
               <Col>
                 <Menu
                   theme="dark"
-                  // style={{ float: "right" }}
                   mode="horizontal"
                   defaultSelectedKeys={[pathname]}
                   onClick={onMenuClick}
@@ -60,9 +59,9 @@ const AppHeader = (props) => {
                 >
                   <MenuOutlined />
                 </Button>
-              </Col>
-              <Col>
-                <FacebookLoginButton />
+                <Col className="facebook-login-col">
+                  <FacebookLoginButton />
+                </Col>
               </Col>
             </Row>
           </Col>

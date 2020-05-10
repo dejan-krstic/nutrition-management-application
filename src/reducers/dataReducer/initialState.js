@@ -476,9 +476,10 @@ const userData = {
 };
 
 export const initialState = {
-  recipes: RECIPES,
-  meals: MEALS,
-  groceries: GROCERIES,
+  isLoading: 0,
+  recipes: [],
+  meals: [],
+  groceries: [],
   daysToProvide: 7,
   userData,
 };

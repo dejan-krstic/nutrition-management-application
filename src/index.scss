@@ -8,8 +8,10 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
-body {
+body,
+main {
   margin: 0;
+  padding: 0;
 }
 
 section.ant-layout {

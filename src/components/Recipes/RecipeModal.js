@@ -10,7 +10,7 @@ const RecipeModal = (props) => {
         visible={props.visible}
         title={props.title}
         width="40rem"
-        style={{ maxWidth: "95vw" }}
+        style={{ maxWidth: "90vw" }}
         onOk={props.handleClose}
         onCancel={props.handleClose}
         footer={[

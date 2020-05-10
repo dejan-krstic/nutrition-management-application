@@ -1,0 +1,76 @@
+$ant-light-grey: #999;
+$ant-dark-grey: #666;
+
+.ant-upload-select-picture-card i {
+  color: $ant-light-grey;
+  font-size: 32px;
+}
+
+.ant-upload-select-picture-card .ant-upload-text {
+  margin-top: 8px;
+  color: $ant-dark-grey;
+}
+
+.dynamic-delete-button {
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  font-size: 24px;
+  color: $ant-light-grey;
+  transition: all 0.3s;
+}
+.dynamic-delete-button:hover {
+  color: $ant-dark-grey;
+}
+.dynamic-delete-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.add-new-recipe-container {
+  width: 95vw;
+  margin: 0 auto;
+}
+
+.ant-form-item-label,
+.ant-form-item-control,
+.ant-col-xs-24.ant-form-item-label {
+  text-align: center;
+}
+
+#row-button-container {
+  justify-content: center;
+}
+
+div.ant-col-xs-4 > div.ant-input-number {
+  width: 100%;
+}
+
+// .ant-upload-picture-card-wrapper {
+//   display: flex;
+//   justify-content: center;
+// }
+
+@media (min-width: 992px) {
+  .ant-form-item-label,
+  .ant-col-xs-24.ant-form-item-label {
+    text-align: right;
+  }
+  .ant-form-item-control {
+    text-align: left;
+  }
+  #form-button-container {
+    padding-left: 1rem;
+  }
+  #row-button-container {
+    justify-content: initial;
+  }
+  // span.ant-upload-picture-card-wrapper {
+  //   justify-content: start;
+  // }
+}
+@media (min-width: 1200px) {
+  #form-button-container {
+    padding-left: 0;
+  }
+}

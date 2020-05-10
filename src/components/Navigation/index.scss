@@ -1,7 +1,7 @@
 $colorHeaderBlue: #001529;
 
 header.ant-layout-header {
-  z-index: 100;
+  z-index: 9998;
   width: 100%;
   padding: 0 1rem;
 }
@@ -20,7 +20,8 @@ button.ant-btn.facebook-login-btn {
   margin: auto;
   font-size: 2rem;
 }
-.ant-menu {
+.ant-menu,
+.facebook-login-col {
   display: none;
 }
 .header-small-logo {
@@ -40,7 +41,7 @@ button.ant-btn.navigation-link-btn {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1000;
+  z-index: 10000;
   height: 100vh;
   width: 70%;
   background: $colorHeaderBlue;
@@ -54,7 +55,7 @@ button.ant-btn.navigation-link-btn {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.75);
-  z-index: 10;
+  z-index: 9999;
 }
 
 .ant-btn {
@@ -89,7 +90,8 @@ button.ant-btn.navigation-link-btn {
   button.ant-btn.navigation-menu-btn {
     display: none;
   }
-  .ant-menu {
+  .ant-menu,
+  .facebook-login-col {
     display: initial;
   }
 

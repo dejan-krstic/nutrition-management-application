@@ -5,6 +5,7 @@ export const recipesSelector = (state) => state.data.recipes;
 export const mealsSelector = (state) => state.data.meals;
 export const groceriesSelector = (state) => state.data.groceries;
 export const daysToProvideSelector = (state) => state.data.daysToProvide;
+export const isLoadingSelector = (state) => state.data.isLoading;
 export const userAvatarUrlSelector = (state) =>
   state.data.userData.picture.data.url;
 

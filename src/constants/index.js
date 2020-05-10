@@ -63,7 +63,30 @@ export const BUTTON_TEXT = {
 };
 
 export const RECIPE_SECTION = {
+  CATEGORY: "Category",
   DESCRIPTION: "Description",
+  IMAGES: "Images",
   INGREDIENTS: "Ingredients",
   INSTRUCTIONS: "Instructions",
+  NUMBER_OF_SERVINGS: "Number of servings",
+  READY_IN_MINUTES: "Ready in minutes",
+  TITLE: "Title",
+};
+
+export const RECIPE_PROPERTY = {
+  ID: "id",
+  CATEGORY: "category",
+  DESCRIPTION: "description",
+  IMAGES: "images",
+  INGREDIENTS: "ingredients",
+  INSTRUCTIONS: "instructions",
+  NUMBER_OF_SERVINGS: "numberOfServings",
+  READY_IN_MINUTES: "readyInMinutes",
+  TITLE: "title",
+};
+
+export const REQUEST_METHOD = {
+  GET: "GET",
+  DELETE: "DELETE",
+  POST: "POST",
 };

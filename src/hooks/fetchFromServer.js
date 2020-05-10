@@ -1,47 +1,43 @@
-import { useCallback, useState } from "react";
-import { DEFAULT_URL } from "../constants";
+import { useCallback } from "react";
 import { message } from "antd";
+import axios from "axios";
+import { REQUEST_METHOD } from "../constants";
+import { useDispatch } from "react-redux";
+import { loadingStarted, loadingFinished } from "../actions";
 
 export const fetchFromServer = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
   const sendRequest = useCallback(
     async (
-      path,
-      method = "GET",
-      body = null,
+      url,
+      method = REQUEST_METHOD.GET,
+      data = null,
       headers = { "Content-Type": "application/json" },
     ) => {
-      const key = path;
+      const key = parseInt(Math.random() * 10000) + "";
       message.loading({ content: "Loading...", key });
-      const url = DEFAULT_URL + path;
-      setIsLoading(true);
-
+      loadingStarted()(dispatch);
       try {
-        const response = await fetch(url, {
+        const response = await axios({
+          url,
           method,
-          body,
+          data,
           headers,
         });
-
-        const responseData = await response.json();
-
         if (response.status < 200 || response.status >= 300) {
-          throw new Error(responseData.message);
+          throw new Error(response.message);
         }
-        message.success({ content: "Loaded!", key, duration: 2 });
-        setIsLoading(false);
-
-        return responseData;
+        message.success({ content: "Loaded!", duration: 3 });
+        loadingFinished()(dispatch);
+        return response;
       } catch (error) {
+        message.error({ content: error.message, key, duration: 3 });
+        loadingFinished()(dispatch);
         console.error("error", error);
-        // message.error({ content: error.message, key, duration: 5 });
-        // we are mocking the response, even error will display success message
-        message.success({ content: "Loaded!", key, duration: 2 });
-        setIsLoading(false);
       }
     },
-    [],
+    [message],
   );
 
-  return { sendRequest, isLoading };
+  return { sendRequest };
 };

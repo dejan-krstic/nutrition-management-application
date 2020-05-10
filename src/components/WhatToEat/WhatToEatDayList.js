@@ -29,7 +29,10 @@ const WhatToEatDayList = (props) => {
           key={day.id}
           extra={generateCheckIcons(day.recipes)}
         >
-          <Row gutter={[DEFAULT_GUTTER, DEFAULT_GUTTER]} justify="space-around">
+          <Row
+            gutter={[{ xs: 0, sm: DEFAULT_GUTTER }, DEFAULT_GUTTER]}
+            justify="space-around"
+          >
             {day.recipes.map((recipe) => (
               <RecipeItem
                 {...recipe}
