@@ -3,16 +3,27 @@ import AddNewRecipe from "../../../components/AddNewRecipe";
 import { Typography } from "antd";
 import { addNewRecipe } from "../../../actions";
 import { useCallback } from "react";
-import { recipesSelector } from "../../../selectors";
+import { recipesSelector, locationSelector } from "../../../selectors";
+import { RECIPE_PROPERTY } from "../../../constants";
 
-const MyProfile = ({ addNewRecipe, recipes }) => {
+const MyProfile = ({ addNewRecipe, recipes, location }) => {
   const addNewRecipeHandler = useCallback(
     (recipe) => {
-      const id = +Math.max(...recipes.map((recipe) => recipe.id)) + 1;
-      addNewRecipe({ ...recipe, id });
+      if (!recipe[RECIPE_PROPERTY.ID]) {
+        recipe[RECIPE_PROPERTY.ID] =
+          1 +
+          (recipes.length &&
+            Math.max(
+              ...recipes
+                .map((recipe) => recipe[RECIPE_PROPERTY.ID])
+                .filter((id) => id && typeof id === "number" && !isNaN(id)),
+            ));
+      }
+      addNewRecipe(recipe);
     },
     [addNewRecipe, recipes],
   );
+
   return (
     <>
       <Typography.Title
@@ -21,13 +32,18 @@ const MyProfile = ({ addNewRecipe, recipes }) => {
       >
         ADD NEW RECIPE
       </Typography.Title>
-      <AddNewRecipe onAddNewRecipe={addNewRecipeHandler} />;
+      <AddNewRecipe
+        onAddNewRecipe={addNewRecipeHandler}
+        recipe={location && location.state && JSON.parse(location.state)}
+      />
+      ;
     </>
   );
 };
 
 const mapStateToProps = (state) => ({
   recipes: recipesSelector(state),
+  location: locationSelector(state),
 });
 
 export default connect(mapStateToProps, { addNewRecipe })(MyProfile);

@@ -5,6 +5,13 @@ export const mapImageResponseData = (response) => ({
   url: response.data.secure_url,
 });
 
+export const createImageData = (url) => ({
+  uid: url,
+  name: url,
+  status: "done",
+  url,
+});
+
 export const readImageFile = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();

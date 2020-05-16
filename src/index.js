@@ -5,7 +5,7 @@ import configureStore, { history } from "./store/configureStore";
 import { Root } from "./Root";
 import "./index.scss";
 
-require("../favicon.ico"); // Tell webpack to load favicon.ico
+require("./assets/favicon.ico");
 
 const store = configureStore();
 
@@ -25,5 +25,18 @@ if (module.hot) {
       </AppContainer>,
       document.getElementById("app"),
     );
+  });
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log("SW registered: ", registration);
+      })
+      .catch((registrationError) => {
+        console.log("SW registration failed: ", registrationError);
+      });
   });
 }

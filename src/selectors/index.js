@@ -1,6 +1,8 @@
 import { createSelector } from "reselect";
 import { createMealPlan, createShoppingList } from "./helpers";
 
+export const locationSelector = (state) => state.router.location;
+
 export const recipesSelector = (state) => state.data.recipes;
 export const mealsSelector = (state) => state.data.meals;
 export const groceriesSelector = (state) => state.data.groceries;

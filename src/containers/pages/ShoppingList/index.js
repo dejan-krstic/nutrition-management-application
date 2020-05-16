@@ -19,15 +19,17 @@ const ShoppingList = (props) => {
 
   return (
     <Row justify="center">
-      <Col xs={22} md={6}>
-        <Typography.Title
-          level={4}
-          style={{ textAlign: "center", color: "#666" }}
-        >
-          SET NUMBER OF DAYS TO PROVIDE:
-        </Typography.Title>
-        <Row style={{ marginBottom: "1rem" }}>
-          <Col span={19}>
+      <Col xs={22} sm={20} md={16} lg={12} xl={10} xxl={7}>
+        <Row justify="center">
+          <Typography.Title
+            level={4}
+            style={{ textAlign: "center", color: "#666" }}
+          >
+            SET NUMBER OF DAYS TO PROVIDE FOR:
+          </Typography.Title>
+        </Row>
+        <Row style={{ marginBottom: "1rem" }} justify="center">
+          <Col xs={15} sm={17}>
             <Slider
               min={1}
               max={30}
@@ -39,7 +41,7 @@ const ShoppingList = (props) => {
               }
             />
           </Col>
-          <Col span={4}>
+          <Col xs={2} sm={3}>
             <InputNumber
               min={1}
               max={30}
@@ -49,7 +51,13 @@ const ShoppingList = (props) => {
             />
           </Col>
         </Row>
-        <ItemList {...props} header={SHOPPING_LIST} />
+        <Row>
+          <ItemList
+            {...props}
+            header={SHOPPING_LIST}
+            style={{ width: "100%" }}
+          />
+        </Row>
       </Col>
     </Row>
   );

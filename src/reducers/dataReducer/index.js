@@ -66,7 +66,16 @@ const dataReducer = (state = initialState, action) => {
 
     case ADD_NEW_RECIPE: {
       const { recipe } = action;
-      return { ...state, recipes: [...state.recipes, recipe] };
+      let index = state.recipes.findIndex(({ id }) => id == recipe.id);
+      if (index === -1) {
+        index = state.recipes.length;
+      }
+      const recipes = [
+        ...state.recipes.slice(0, index),
+        recipe,
+        ...state.recipes.slice(index + 1),
+      ];
+      return { ...state, recipes };
     }
 
     case SET_DAYS_TO_PROVIDE: {

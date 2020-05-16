@@ -6,15 +6,13 @@ import {
   PANEL_DATE_FORMAT,
   MEASUREMENT_UNIT,
 } from "../constants";
+import addNewImage from "../assets/add_new.jpg";
 
 const getAddNewRecipe = (type, recommendations) => ({
   id: type,
   category: type,
   title: `Please add ${type.toLocaleLowerCase()}`,
-  images: [
-    "https://res.cloudinary.com/misicvolizeku/image/upload/c_scale,h_400/v1589086109/unsigned/mcjccuhjl0l28nnbr6fd.jpg",
-    // "https://res.cloudinary.com/misicvolizeku/image/upload/v1589086109/unsigned/mcjccuhjl0l28nnbr6fd.png",
-  ],
+  images: [addNewImage],
   description: `We would recommend: ${recommendations[type]}`,
   enjoyMessage: "Enjoy ",
   isDummy: true,
