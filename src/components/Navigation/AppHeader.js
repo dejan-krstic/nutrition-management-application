@@ -4,14 +4,16 @@ import smallLogo from "../../assets/nutrition_management_logo-180px.png";
 import largeLogo from "../../assets/nutrition_management_logo-410px.png";
 import navigation from "../../hooks/navigation";
 import { NAVIGATION_LINKS } from "../../constants";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import FacebookLoginButton from "../../containers/FacebookLogin";
+import { useSelector } from "react-redux";
+import { locationSelector } from "../../selectors";
 
 const { Header } = Layout;
 
 const AppHeader = (props) => {
   const { historyPush } = navigation();
-  const { pathname } = useLocation();
+  const { pathname } = useSelector(locationSelector);
 
   const onMenuClick = (e) => {
     historyPush(e.key);
@@ -42,7 +44,7 @@ const AppHeader = (props) => {
                 <Menu
                   theme="dark"
                   mode="horizontal"
-                  defaultSelectedKeys={[pathname]}
+                  selectedKeys={[pathname]}
                   onClick={onMenuClick}
                 >
                   {Object.values(NAVIGATION_LINKS).map((link) => (

@@ -3,6 +3,7 @@
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+// import WorkboxPlugin from "workbox-webpack-plugin";
 import path from "path";
 
 const GLOBALS = {
@@ -39,7 +40,7 @@ export default {
     // Generate HTML file that contains references to generated bundles. See here for how this works: https://github.com/ampedandwired/html-webpack-plugin#basic-usage
     new HtmlWebpackPlugin({
       template: "src/index.ejs",
-      favicon: "src/favicon.ico",
+      favicon: "src/assets/favicon.ico",
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -61,6 +62,12 @@ export default {
     new webpack.ProvidePlugin({
       React: "react",
     }),
+    // new WorkboxPlugin.GenerateSW({
+    //   // these options encourage the ServiceWorkers to get in there fast
+    //   // and not allow any straggling "old" SWs to hang around
+    //   clientsClaim: true,
+    //   skipWaiting: true,
+    // }),
   ],
   module: {
     rules: [

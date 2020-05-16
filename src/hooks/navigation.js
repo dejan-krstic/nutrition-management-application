@@ -3,8 +3,8 @@ import { useCallback } from "react";
 
 const navigationHook = () => {
   const history = useHistory();
-  const historyPush = useCallback((path) => {
-    history.push(path);
+  const historyPush = useCallback((path, state) => {
+    history.push(path, state);
   }, []);
   return { historyPush };
 };

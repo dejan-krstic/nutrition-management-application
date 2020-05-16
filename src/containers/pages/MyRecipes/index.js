@@ -12,6 +12,7 @@ import { recipesSelector, isLoadingSelector } from "../../../selectors";
 import { deleteRecipe, setRecipes } from "../../../actions";
 import navigationHook from "../../../hooks/navigation";
 import { LoadingOutlined } from "@ant-design/icons";
+import { fetchFromServer } from "../../../hooks/fetchFromServer";
 
 const MyRecipes = (props) => {
   const { useState } = React;
@@ -19,6 +20,7 @@ const MyRecipes = (props) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [recipeModalData, setRecipeModalData] = useState({});
   const { historyPush } = navigationHook();
+  const { isLoading } = fetchFromServer();
 
   const showRecipeModalHandler = (recipe) => {
     setRecipeModalData(recipe);
@@ -40,12 +42,21 @@ const MyRecipes = (props) => {
     setShowConfirmModal(false);
     closeRecipeModalHandler();
   };
+
   const handleCreateNew = () => {
     historyPush(NAVIGATION_LINKS.myProfile.path);
   };
+
+  const handleRecipeEdit = () => {
+    historyPush(
+      NAVIGATION_LINKS.myProfile.path,
+      JSON.stringify(recipeModalData),
+    );
+  };
+
   return (
     <>
-      {!props.recipes.length && !props.isLoading && (
+      {!props.recipes.length && !isLoading && (
         <Empty
           image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
           imageStyle={{
@@ -64,7 +75,7 @@ const MyRecipes = (props) => {
             <LoadingOutlined />
           ) : (
             <RecipeList
-              items={multiplyRecipes(5, props.recipes)}
+              items={multiplyRecipes(3, props.recipes)}
               showRecipeModalHandler={showRecipeModalHandler}
             />
           )}
@@ -83,7 +94,7 @@ const MyRecipes = (props) => {
         {...recipeModalData}
         visible={showRecipeModal}
         handleDelete={handleDelete}
-        handleEdit={() => {}}
+        handleEdit={handleRecipeEdit}
         handleClose={closeRecipeModalHandler}
       />
     </>

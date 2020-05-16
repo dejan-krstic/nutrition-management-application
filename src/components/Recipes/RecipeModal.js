@@ -1,7 +1,8 @@
 import { Modal, Button, Divider, Carousel, List } from "antd";
 import { getIngredientsText, recipeInfoText } from "./helpers";
-import "./RecipeModal.scss";
 import { BUTTON_TEXT, RECIPE_SECTION } from "../../constants";
+import FOOD_PLATE_IMAGE from "../../assets/food-plate-hand-drawn.png";
+import "./RecipeModal.scss";
 
 const RecipeModal = (props) => {
   return (
@@ -26,19 +27,21 @@ const RecipeModal = (props) => {
         ]}
       >
         <Carousel autoplay style={{ height: "25rem" }}>
-          {props.images &&
-            props.images.map((imageSrc, index) => (
-              <div className="recipe-modal-image-container" key={index}>
-                <img
-                  src={imageSrc}
-                  style={{
-                    margin: "0 auto",
-                    height: "25rem",
-                  }}
-                  alt={props.title}
-                />
-              </div>
-            ))}
+          {(props.images && props.images.length
+            ? props.images
+            : [FOOD_PLATE_IMAGE]
+          ).map((imageSrc, index) => (
+            <div className="recipe-modal-image-container" key={index}>
+              <img
+                src={imageSrc}
+                style={{
+                  margin: "0 auto",
+                  height: "25rem",
+                }}
+                alt={props.title}
+              />
+            </div>
+          ))}
         </Carousel>
         <p>{`${recipeInfoText(
           props.category,

@@ -16,7 +16,7 @@ const Groceries = (props) => {
 
   return (
     <Row justify="space-around">
-      <Col xs={23} md={7}>
+      <Col xs={22} sm={20} md={16} lg={12} xl={10} xxl={7}>
         <ItemList
           {...props}
           header={GROCERIES}

@@ -27,7 +27,8 @@ import { fetchFromServer } from "../../hooks/fetchFromServer";
 import { useCallback, useState } from "react";
 import PictureWall from "./PictureWall";
 import "./index.scss";
-import { mapImageResponseData } from "./helpers";
+import { mapImageResponseData, createImageData } from "./helpers";
+import { useEffect } from "react";
 
 const { Option } = Select;
 
@@ -66,10 +67,49 @@ const AddNewRecipe = (props) => {
         values[RECIPE_PROPERTY.NUMBER_OF_SERVINGS] || 4,
       [RECIPE_PROPERTY.IMAGES]: [...uploadedImages.map((image) => image.url)],
     };
+    if (props.recipe) {
+      recipe[RECIPE_PROPERTY.ID] = props.recipe[RECIPE_PROPERTY.ID];
+    }
     props.onAddNewRecipe(recipe);
     form.resetFields();
     setUploadedImages([]);
   };
+
+  useEffect(() => {
+    if (props.recipe) {
+      setUploadedImages(() => [...props.recipe.images.map(createImageData)]);
+      form.setFields([
+        {
+          name: RECIPE_PROPERTY.CATEGORY,
+          value: props.recipe[RECIPE_PROPERTY.CATEGORY],
+        },
+        {
+          name: RECIPE_PROPERTY.DESCRIPTION,
+          value: props.recipe[RECIPE_PROPERTY.DESCRIPTION],
+        },
+        {
+          name: RECIPE_PROPERTY.INSTRUCTIONS,
+          value: props.recipe[RECIPE_PROPERTY.INSTRUCTIONS],
+        },
+        {
+          name: RECIPE_PROPERTY.INGREDIENTS,
+          value: props.recipe[RECIPE_PROPERTY.INGREDIENTS],
+        },
+        {
+          name: RECIPE_PROPERTY.NUMBER_OF_SERVINGS,
+          value: props.recipe[RECIPE_PROPERTY.NUMBER_OF_SERVINGS],
+        },
+        {
+          name: RECIPE_PROPERTY.READY_IN_MINUTES,
+          value: props.recipe[RECIPE_PROPERTY.READY_IN_MINUTES],
+        },
+        {
+          name: RECIPE_PROPERTY.TITLE,
+          value: props.recipe[RECIPE_PROPERTY.TITLE],
+        },
+      ]);
+    }
+  }, [props.recipe]);
 
   const handleRemoveImage = useCallback(
     (image) => {
@@ -127,7 +167,7 @@ const AddNewRecipe = (props) => {
           name={RECIPE_PROPERTY.DESCRIPTION}
           label={RECIPE_SECTION.DESCRIPTION}
         >
-          <Input.TextArea />
+          <Input.TextArea autoSize={{ minRows: 4, maxRows: 10 }} />
         </Form.Item>
 
         <Form.Item
@@ -163,7 +203,7 @@ const AddNewRecipe = (props) => {
             },
           ]}
         >
-          <InputNumber min={1} max={999} defaultValue={1} />
+          <InputNumber min={1} max={999} />
         </Form.Item>
         <Form.Item
           name={RECIPE_PROPERTY.INGREDIENTS}
@@ -279,7 +319,7 @@ const AddNewRecipe = (props) => {
             },
           ]}
         >
-          <Input.TextArea />
+          <Input.TextArea autoSize={{ minRows: 4, maxRows: 12 }} />
         </Form.Item>
         <Form.Item label={RECIPE_SECTION.IMAGES}>
           <PictureWall

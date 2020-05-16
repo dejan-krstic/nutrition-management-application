@@ -9,7 +9,7 @@ const RecipeList = (props) => {
       justify="center"
     >
       {props.items
-        .filter((recipe) => recipe && recipe.ingredients)
+        .filter((recipe) => recipe && recipe.id)
         .map((recipe) => (
           <RecipeItem
             {...recipe}

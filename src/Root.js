@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ConnectedRouter } from 'connected-react-router';
-import { Provider } from 'react-redux';
-import App from './App';
+import React from "react";
+import PropTypes from "prop-types";
+import { ConnectedRouter, history } from "connected-react-router";
+import { Provider } from "react-redux";
+import App from "./App";
 
 export const Root = ({ store, history }) => (
   <Provider store={store}>

@@ -28,6 +28,7 @@ const ItemsList = (props) => {
 
   return (
     <List
+      style={{ width: "100%" }}
       header={<Title level={2}>{props.header}</Title>}
       bordered
       dataSource={sortedItems}
