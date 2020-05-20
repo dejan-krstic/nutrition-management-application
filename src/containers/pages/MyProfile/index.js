@@ -3,25 +3,14 @@ import AddNewRecipe from "../../../components/AddNewRecipe";
 import { Typography } from "antd";
 import { addNewRecipe } from "../../../actions";
 import { useCallback } from "react";
-import { recipesSelector, locationSelector } from "../../../selectors";
-import { RECIPE_PROPERTY } from "../../../constants";
+import { locationSelector } from "../../../selectors";
 
-const MyProfile = ({ addNewRecipe, recipes, location }) => {
+const MyProfile = ({ addNewRecipe, location }) => {
   const addNewRecipeHandler = useCallback(
     (recipe) => {
-      if (!recipe[RECIPE_PROPERTY.ID]) {
-        recipe[RECIPE_PROPERTY.ID] =
-          1 +
-          (recipes.length &&
-            Math.max(
-              ...recipes
-                .map((recipe) => recipe[RECIPE_PROPERTY.ID])
-                .filter((id) => id && typeof id === "number" && !isNaN(id)),
-            ));
-      }
       addNewRecipe(recipe);
     },
-    [addNewRecipe, recipes],
+    [addNewRecipe],
   );
 
   return (
@@ -42,7 +31,6 @@ const MyProfile = ({ addNewRecipe, recipes, location }) => {
 };
 
 const mapStateToProps = (state) => ({
-  recipes: recipesSelector(state),
   location: locationSelector(state),
 });
 

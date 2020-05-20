@@ -2,15 +2,15 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 import { fetchFromServer } from "../../hooks/fetchFromServer";
 import { message } from "antd";
-import { setRecipes, setGroceries, setMeals } from "../../actions";
+import { getRecipes, getGroceries, getMeals } from "../../actions";
 import { RECIPES_URL, MEALS_URL, GROCERIES_URL } from "./constants";
 
-const DataLayer = ({ setRecipes, setMeals, setGroceries }) => {
+const DataLayer = ({ getRecipes, getMeals, getGroceries }) => {
   const { sendRequest } = fetchFromServer();
   const ACTIONS_MAPPER = {
-    groceries: setGroceries,
-    recipes: setRecipes,
-    meals: setMeals,
+    groceries: getGroceries,
+    recipes: getRecipes,
+    meals: getMeals,
   };
   useEffect(() => {
     const fetchData = async () => {
@@ -38,4 +38,4 @@ const DataLayer = ({ setRecipes, setMeals, setGroceries }) => {
   return null;
 };
 
-export default connect(null, { setRecipes, setMeals, setGroceries })(DataLayer);
+export default connect(null, { getRecipes, getMeals, getGroceries })(DataLayer);

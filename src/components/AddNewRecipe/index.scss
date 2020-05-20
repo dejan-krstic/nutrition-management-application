@@ -46,11 +46,6 @@ div.ant-col-xs-4 > div.ant-input-number {
   width: 100%;
 }
 
-// .ant-upload-picture-card-wrapper {
-//   display: flex;
-//   justify-content: center;
-// }
-
 @media (min-width: 992px) {
   .ant-form-item-label,
   .ant-col-xs-24.ant-form-item-label {
@@ -65,9 +60,6 @@ div.ant-col-xs-4 > div.ant-input-number {
   #row-button-container {
     justify-content: initial;
   }
-  // span.ant-upload-picture-card-wrapper {
-  //   justify-content: start;
-  // }
 }
 @media (min-width: 1200px) {
   #form-button-container {

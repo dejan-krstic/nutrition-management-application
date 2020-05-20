@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyRecipes should match snapshot with Empty page 1`] = `ShallowWrapper {}`;
+
+exports[`MyRecipes should match snapshot with loader active 1`] = `ShallowWrapper {}`;
+
+exports[`MyRecipes should match snapshot with recipes present 1`] = `ShallowWrapper {}`;

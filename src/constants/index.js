@@ -21,7 +21,8 @@ export const multiplyRecipes = (repetition, recipes) => {
   return multiRecipes;
 };
 
-export const CONFIRM_DELETE_RECIPE = "Do you want to delete this recipe?";
+export const CONFIRM_DELETE_RECIPE_SUCCESS =
+  "Do you want to delete this recipe?";
 export const DEFAULT_GUTTER = 48;
 export const ID_DATE_FORMAT = "YYYYMMDD";
 export const PANEL_DATE_FORMAT = "dddd, MMMM Do";
@@ -89,4 +90,17 @@ export const REQUEST_METHOD = {
   GET: "GET",
   DELETE: "DELETE",
   POST: "POST",
+};
+
+export const NOTIFICATION_TYPE = {
+  SUCCESS: "success",
+  INFO: "info",
+  WARNING: "warning",
+  ERROR: "error",
+};
+
+export const MEALS_MAPPER = {
+  [RECIPE_CATEGORY.BREAKFAST]: 1,
+  [RECIPE_CATEGORY.LUNCH]: 2,
+  [RECIPE_CATEGORY.DINNER]: 3,
 };
