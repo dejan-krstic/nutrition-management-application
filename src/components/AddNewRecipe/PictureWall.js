@@ -26,7 +26,7 @@ const PictureWall = (props) => {
   const uploadButton = (
     <div>
       <PlusOutlined />
-      <div className="ant-upload-text">Upload</div>
+      <div className="ant-upload-text">Drop Image</div>
     </div>
   );
   return (

@@ -12,16 +12,16 @@ const RecipeModal = (props) => {
         title={props.title}
         width="40rem"
         style={{ maxWidth: "90vw" }}
-        onOk={props.handleClose}
-        onCancel={props.handleClose}
+        onOk={props.onClose}
+        onCancel={props.onClose}
         footer={[
-          <Button key="back" onClick={props.handleDelete}>
+          <Button key="back" onClick={props.onDelete}>
             {BUTTON_TEXT.DELETE}
           </Button>,
-          <Button key="back" onClick={props.handleEdit}>
+          <Button key="back" onClick={props.onEdit}>
             {BUTTON_TEXT.EDIT}
           </Button>,
-          <Button key="submit" type="primary" onClick={props.handleClose}>
+          <Button key="submit" type="primary" onClick={props.onClose}>
             {BUTTON_TEXT.CLOSE}
           </Button>,
         ]}

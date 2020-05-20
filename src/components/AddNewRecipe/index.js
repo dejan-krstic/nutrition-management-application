@@ -15,6 +15,7 @@ import {
   RECIPE_CATEGORY,
   MEASUREMENT_UNIT,
   REQUEST_METHOD,
+  NAVIGATION_LINKS,
 } from "../../constants";
 import {
   CLOUDINARY_UPLOAD_PRESET,
@@ -29,6 +30,7 @@ import PictureWall from "./PictureWall";
 import "./index.scss";
 import { mapImageResponseData, createImageData } from "./helpers";
 import { useEffect } from "react";
+import navigationHook from "../../hooks/navigation";
 
 const { Option } = Select;
 
@@ -36,6 +38,7 @@ const AddNewRecipe = (props) => {
   const { sendRequest, isLoading } = fetchFromServer();
   const [uploadedImages, setUploadedImages] = useState([]);
   const [form] = Form.useForm();
+  const { historyPush } = navigationHook();
 
   const handleImageUpload = useCallback(
     async (input) => {
@@ -73,6 +76,7 @@ const AddNewRecipe = (props) => {
     props.onAddNewRecipe(recipe);
     form.resetFields();
     setUploadedImages([]);
+    historyPush(NAVIGATION_LINKS.myRecipes.path);
   };
 
   useEffect(() => {
@@ -180,7 +184,7 @@ const AddNewRecipe = (props) => {
             min={1}
             max={7}
             tooltipVisible
-            defaultValue={4}
+            defaultValue={6}
             marks={{
               2: "Two",
               4: "Four",

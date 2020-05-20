@@ -1,27 +1,21 @@
-import axios from 'axios';
-import { getItem } from '../localStorageService';
+import axios from "axios";
+import { getItem } from "../localStorageService";
 
-const BASE_API_URL = 'http://localhost:3001';
+const BASE_API_URL = "http://localhost:5000";
 
 class ApiService {
   constructor() {
     let service = axios.create({
       baseURL: BASE_API_URL,
+      headers: { "Content-Type": "application/json" },
     });
-    service.interceptors.request.use(
-      this.handleReqInterceptorSuccess,
-      this.handleReqInterceptorError
-    );
-    service.interceptors.response.use(
-      this.handleResInterceptorSuccess,
-      this.handleResInterceptorError
-    );
+    axios.defaults.headers.post["Content-Type"] = "application/json";
     this.service = service;
   }
 
   handleReqInterceptorSuccess(request) {
     if (request.baseURL === BASE_API_URL && !request.headers.Authorization) {
-      const token = getItem('access_token');
+      const token = getItem("access_token");
 
       if (token) {
         request.headers.Authorization = `Bearer ${token}`;
@@ -31,7 +25,6 @@ class ApiService {
   }
 
   handleReqInterceptorError = (error) => {
-    console.log('request interceptor error', error.response);
     return Promise.reject(error);
   };
 
@@ -40,7 +33,6 @@ class ApiService {
   }
 
   handleResInterceptorError = (error) => {
-    console.log('response interceptor error', error.response);
     // handle error globally, for example check if the error status is 500
     // and write error in log.file or send via slack service...
     return Promise.reject(error);
@@ -65,26 +57,26 @@ class ApiService {
   async post(path, payload) {
     return this.handleApiCall(() =>
       this.service.request({
-        method: 'POST',
+        method: "POST",
         url: path,
         data: payload,
-      })
+      }),
     );
   }
 
   async put(path, payload) {
     return this.handleApiCall(() =>
       this.service.request({
-        method: 'PUT',
+        method: "PUT",
         url: path,
         data: payload,
-      })
+      }),
     );
   }
 
   async patch(path, payload) {
     return this.service.request({
-      method: 'PATCH',
+      method: "PATCH",
       url: path,
       data: payload,
     });

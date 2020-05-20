@@ -1,12 +1,20 @@
-import { Col, Row } from "antd";
+import { Col, Row, Spin } from "antd";
 import WhatToEatDayList from "../../../components/WhatToEat/WhatToEatDayList";
 import { connect } from "react-redux";
-import { mealPlanSelector, recipesSelector } from "../../../selectors";
-import { choseMealOnDate } from "../../../actions";
+import {
+  mealPlanSelector,
+  recipesSelector,
+  areLoadedMealsSelector,
+  areLoadedRecipesSelector,
+  isLoadingRecipesSelector,
+  isLoadingMealsSelector,
+  mealsSelector,
+} from "../../../selectors";
+import { choseMealOnDate, getRecipes, getMeals } from "../../../actions";
 import WhatToEatModal from "../../../components/WhatToEat/WhatToEatModal";
+import { useEffect, useState } from "react";
 
 const MealPlan = (props) => {
-  const { useState } = React;
   const [showModal, showWhatToEatModal] = useState(false);
   const [mealData, setMealData] = useState({});
 
@@ -18,9 +26,21 @@ const MealPlan = (props) => {
   const closeWhatToEatModalHandler = () => showWhatToEatModal(false);
 
   const handleChoose = (id) => {
-    props.choseMealOnDate(mealData.date, mealData.type, id);
+    props.choseMealOnDate(props.meals, mealData.date, mealData.type, id);
     closeWhatToEatModalHandler();
   };
+
+  useEffect(() => {
+    if (!props.isLoadingRecipes && !props.recipesLoaded) {
+      props.getRecipes();
+    }
+  }, [props.isLoadingRecipes, props.recipesLoaded]);
+
+  useEffect(() => {
+    if (!props.isLoadingMeals && !props.mealsLoaded) {
+      props.getMeals();
+    }
+  }, [props.isLoadingMeals, props.mealsLoaded]);
 
   return (
     <>
@@ -32,10 +52,16 @@ const MealPlan = (props) => {
       />
       <Row justify="center">
         <Col xs={23} sm={22} md={21} xl={20} xxl={17}>
-          <WhatToEatDayList
-            {...props}
-            addMealModalHandler={showWhatToEatModalHandler}
-          />
+          {props.isLoadingRecipes || props.isLoadingMeals ? (
+            <Row justify="center" style={{ marginTop: "30vh" }}>
+              <Spin size="large" />
+            </Row>
+          ) : (
+            <WhatToEatDayList
+              {...props}
+              addMealModalHandler={showWhatToEatModalHandler}
+            />
+          )}
         </Col>
       </Row>
     </>
@@ -44,7 +70,16 @@ const MealPlan = (props) => {
 
 const mapStateToProps = (state) => ({
   mealPlan: mealPlanSelector(state),
+  meals: mealsSelector(state),
   recipes: recipesSelector(state),
+  isLoadingRecipes: isLoadingRecipesSelector(state),
+  isLoadingMeals: isLoadingMealsSelector(state),
+  recipesLoaded: areLoadedRecipesSelector(state),
+  mealsLoaded: areLoadedMealsSelector(state),
 });
 
-export default connect(mapStateToProps, { choseMealOnDate })(MealPlan);
+export default connect(mapStateToProps, {
+  choseMealOnDate,
+  getMeals,
+  getRecipes,
+})(MealPlan);

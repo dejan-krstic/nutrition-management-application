@@ -10,7 +10,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Layout } from "antd";
 import { FOOTER_MSG, NAVIGATION_LINKS } from "./constants";
 import MyProfile from "./containers/pages/MyProfile";
-import DataLayer from "./containers/DataLayer";
+import Notification from "./containers/Notification";
 
 const { Content, Footer } = Layout;
 
@@ -18,10 +18,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <DataLayer />
+        <Notification />
         <Layout>
           <Navigation />
-          <Content className="site-layout" style={{ marginTop: 64 }}>
+          <Content className="site-layout">
             <Switch>
               <Route path={NAVIGATION_LINKS.myRecipes.path} exact>
                 <MyRecipes />

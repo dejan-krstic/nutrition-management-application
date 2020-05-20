@@ -711,9 +711,25 @@ const userData = {
 
 export const initialState = {
   isLoading: 0,
-  recipes: RECIPES,
-  meals: MEALS,
-  groceries: GROCERIES,
+  recipes: {
+    data: [],
+    isLoading: 0,
+    loaded: false,
+  },
+  meals: {
+    data: [],
+    isLoading: 0,
+    loaded: false,
+  },
+  groceries: {
+    data: [],
+    isLoading: 0,
+    loaded: false,
+  },
   daysToProvide: 7,
+  notificationData: {
+    type: "",
+    message: "",
+  },
   userData,
 };
