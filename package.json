@@ -34,7 +34,7 @@
     "@ant-design/icons": "4.1.0",
     "@hot-loader/react-dom": "16.10.2",
     "antd": "4.2.0",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "connected-react-router": "6.5.2",
     "moment": "2.25.1",
     "object-assign": "4.1.1",
