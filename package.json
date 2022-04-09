@@ -36,7 +36,7 @@
     "antd": "4.2.0",
     "axios": "0.19.2",
     "connected-react-router": "6.5.2",
-    "moment": "2.25.1",
+    "moment": "2.29.2",
     "object-assign": "4.1.1",
     "react": "16.11.0",
     "react-dom": "16.11.0",
