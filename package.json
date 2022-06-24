@@ -91,7 +91,7 @@
     "jest-cli": "24.9.0",
     "jest-environment-puppeteer": "4.4.0",
     "jest-puppeteer": "4.4.0",
-    "jsdom": "16.2.2",
+    "jsdom": "16.5.0",
     "jsdom-global": "3.0.2",
     "json-loader": "0.5.7",
     "json-server": "0.16.1",
